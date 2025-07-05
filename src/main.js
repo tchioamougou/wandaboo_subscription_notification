@@ -192,7 +192,7 @@ export default async ({ req, res, log, error }) => {
               const subject = "Wandabook Subscription Confirmation";
               const text = `Bonjour ${user.first_name},\n\nVotre abonnement a été activé avec succès. Votre identifiant de patron est ${user.barcode}.\n\nMerci pour votre confiance !\n\nCordialement,\nL'équipe Wandabook`;
               try {
-              //  await sendEmail({ to: email, subject, text });
+                await sendEmail({ to: email, subject, text });
                 log(`Email sent to ${email}`);
               } catch (emailError) {
                 log(`Failed to send email to ${email}: ${emailError.message}`);
@@ -236,7 +236,7 @@ export default async ({ req, res, log, error }) => {
             const email = user.email;
             const text = `Bonjour ${user.first_name},\n\nVotre abonnement a été réactivé avec succès. Votre identifiant de patron est ${user.barcode}.\n\nMerci pour votre confiance !\n\nCordialement,\nL'équipe Wandabook`;
             try {
-              //await sendEmail({ to: email, subject, text });
+              await sendEmail({ to: email, subject, text });
               log(`Email sent to ${email}`);
             } catch (emailError) {
               log(`Failed to send email to ${email}: ${emailError.message}`);

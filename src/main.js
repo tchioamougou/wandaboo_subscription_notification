@@ -145,7 +145,7 @@ export default async ({ req, res, log, error }) => {
         log(`Payment Notification Received: ${JSON.stringify(result)}`);
 
         if (result.success && result.status === "ACCEPTED") {
-          const metadataJson = JSON.parse(decodeURIComponent(escape(atob(result.metadata))));
+          const metadataJson = JSON.parse(decodeURIComponent(escape(atob(result.paymentInfo.metadata))));
           log("Decoded metadata JSON:", JSON.stringify(metadataJson));
           const metadata = metadataJson;
           if (isDraft && !hasBarcode) {
